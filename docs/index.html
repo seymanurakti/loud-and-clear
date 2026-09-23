@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loud and Clear: Dynamic Activation Steering for Improving Speech Intelligibility in Noisy Environments</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        kit: {
+                            DEFAULT: '#00876C',
+                            dark: '#006B54',
+                            light: '#E6F4F1',
+                            subtle: '#F0F8F6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased selection:bg-kit selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200/80">
+        <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="#" class="font-semibold text-neutral-900 tracking-tight text-sm flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-kit"></span>
+                Loud & Clear
+            </a>
+        </div>
+    </nav>
+
+    <header class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-kit-light text-kit text-xs font-semibold mb-6 tracking-wide uppercase">
+            <span>Research Project Page</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 leading-tight">
+            Loud and Clear: Dynamic Activation Steering for Improving Speech Intelligibility in Noisy Environments
+        </h1>
+        
+        <!-- Two Authors & Three Affiliations Placeholder -->
+        <div class="mt-8 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm font-semibold text-neutral-800">
+            <span class="hover:text-kit cursor-pointer transition">Seymanur Akti<sup>1, 2</sup></span>
+            <span class="hover:text-kit cursor-pointer transition">Alexander Waibel<sup>1, 3</sup></span>
+        </div>
+        <div class="mt-2 text-xs text-neutral-500 flex flex-wrap justify-center gap-x-6">
+            <span><sup>1</sup> Karlsruhe Institute of Technology (KIT), Karlsruhe, Germany</span>
+            <span><sup>2</sup> KIT Campus Transfer (KCT), Karlsruhe, Germany</span>
+            <span><sup>3</sup> Carnegie Mellon University (CMU), Pittsburgh, USA</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 space-y-16 pb-24">
+
+        <section id="abstract" class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200/80">
+            <h2 class="text-xs uppercase tracking-widest font-bold text-kit mb-3">Abstract</h2>
+            <p class="text-neutral-700 leading-relaxed text-base">
+                Speech becomes less intelligible in noisy environments, and humans naturally adapt their voice to compensate. Inspired by this behavior, we investigate whether a text-to-speech (TTS) model can be guided to produce more intelligible speech using activation steering, without retraining. We focus on two characteristics of the Lombard effect: increased vocal effort and hyper-articulation. We introduce a prompt-relative steering mechanism that prevents steering effects from accumulating during generation while allowing their strength to be adjusted dynamically. Across seen and unseen speakers and multiple languages, our method produces systematic changes in Lombard-related acoustic features, preserves speaker similarity (90–95%), and reduces WER under background noise by 7–22% at 1 dB SNR. These results show that pretrained TTS models can be dynamically controlled to generate more intelligible speech without retraining.
+            </p>
+        </section>
+
+        <section id="audio-samples" class="space-y-12">
+            <div class="border-b border-neutral-200 pb-4">
+                <h2 class="text-2xl font-bold text-neutral-900 tracking-tight">Audio Samples</h2>
+                <p class="text-neutral-500 text-sm mt-1">
+                    Listen to audio evaluations comparing unsteered baseline speech with our proposed dynamic activation steering configurations.
+                </p>
+            </div>
+
+            <!-- Subsection 1: Expresso Dataset -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-neutral-900 text-base">1. Expresso Dataset Evaluation</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-kit-light text-kit rounded-md">Control & Scaling</span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-500">Comparison of baseline unsteered speech against steering scales, individual vocal effort, and articulation directions.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Audio Card 1 -->
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Baseline (Unsteered)</span>
+                            <span class="text-neutral-400 font-normal">Clean Reference</span>
+                        </div>
+                        <audio controls class="w-full h-9">
+                            <source src="./audio/expresso_baseline.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Audio Card 2 -->
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Low Steering (&lambda; = 0.5)</span>
+                            <span class="text-neutral-500 font-normal">Mild Lombard</span>
+                        </div>
+                        <audio controls class="w-full h-9">
+                            <source src="./audio/expresso_low.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Audio Card 3 -->
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Mid Steering (&lambda; = 1.0)</span>
+                            <span class="text-neutral-500 font-normal">Balanced</span>
+                        </div>
+                        <audio controls class="w-full h-9">
+                            <source src="./audio/expresso_mid.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Audio Card 4 -->
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>High Steering (&lambda; = 2.0)</span>
+                            <span class="text-neutral-500 font-normal">Max Safe Extrapolation</span>
+                        </div>
+                        <audio controls class="w-full h-9">
+                            <source src="./audio/expresso_high.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Audio Card 5 -->
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Vocal Effort Only</span>
+                            <span class="text-neutral-500 font-normal">Spectral Tilt Focus</span>
+                        </div>
+                        <audio controls class="w-full h-9">
+                            <source src="./audio/expresso_effort.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Audio Card 6 -->
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Articulation Only</span>
+                            <span class="text-neutral-500 font-normal">Hyper-articulation Focus</span>
+                        </div>
+                        <audio controls class="w-full h-9">
+                            <source src="./audio/expresso_articulation.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subsection 2: Multilingual & Unseen Speakers -->
+            <div class="space-y-4 pt-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-neutral-900 text-base">2. Multilingual & Unseen Speakers Evaluation</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-kit-light text-kit rounded-md">Generalization</span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-500">Generalization to unseen speakers (VCTK) and unseen languages (German, Spanish, Japanese).</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>VCTK (English - Unseen Speaker)</span>
+                            <span class="text-neutral-400 font-normal">Baseline vs Steered</span>
+                        </div>
+                        <audio controls class="w-full h-9"><source src="./audio/vctk_sample.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>German Test Set</span>
+                            <span class="text-neutral-400 font-normal">Baseline vs Steered</span>
+                        </div>
+                        <audio controls class="w-full h-9"><source src="./audio/german_sample.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Spanish Test Set</span>
+                            <span class="text-neutral-400 font-normal">Baseline vs Steered</span>
+                        </div>
+                        <audio controls class="w-full h-9"><source src="./audio/spanish_sample.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="bg-white border border-neutral-200/80 p-5 rounded-2xl space-y-3 shadow-sm hover:shadow transition">
+                        <div class="flex justify-between items-center text-xs font-semibold text-neutral-800">
+                            <span>Japanese Test Set</span>
+                            <span class="text-neutral-400 font-normal">Baseline vs Steered</span>
+                        </div>
+                        <audio controls class="w-full h-9"><source src="./audio/japanese_sample.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subsection 3: Speech Intelligibility in Noise & Dynamic Streaming -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                <!-- Speech in Noise -->
+                <div class="space-y-4 bg-white border border-neutral-200/80 p-6 rounded-2xl shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-neutral-900 text-sm">3. Speech in Noise (5 dB SNR)</h3>
+                        <span class="text-[10px] font-semibold px-2.5 py-1 bg-kit-light text-kit rounded-md">Babble Noise</span>
+                    </div>
+                    <p class="text-xs text-neutral-500">Evaluated under restaurant babble noise to verify clarity.</p>
+
+                    <div class="space-y-3 pt-1">
+                        <div class="bg-neutral-50 border border-neutral-200/60 p-3.5 rounded-xl space-y-1.5">
+                            <div class="text-[11px] font-semibold text-neutral-700">Baseline in Babble Noise</div>
+                            <audio controls class="w-full h-8"><source src="./audio/noise_baseline.wav" type="audio/wav"></audio>
+                        </div>
+                        <div class="bg-neutral-50 border border-neutral-200/60 p-3.5 rounded-xl space-y-1.5">
+                            <div class="text-[11px] font-semibold text-neutral-700">Steered in Babble Noise</div>
+                            <audio controls class="w-full h-8"><source src="./audio/noise_steered.wav" type="audio/wav"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Streaming Steering -->
+                <div class="space-y-4 bg-white border border-neutral-200/80 p-6 rounded-2xl shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-neutral-900 text-sm">4. Dynamic Streaming Steering</h3>
+                        <span class="text-[10px] font-semibold px-2.5 py-1 bg-kit-light text-kit rounded-md">Streaming</span>
+                    </div>
+                    <p class="text-xs text-neutral-500">Demonstrating temporal precision with mid-stream steering introduction and removal.</p>
+
+                    <div class="space-y-3 pt-1">
+                        <div class="bg-neutral-50 border border-neutral-200/60 p-3.5 rounded-xl space-y-1.5">
+                            <div class="text-[11px] font-semibold text-neutral-700">Dynamic Streaming Timeline Sample</div>
+                            <audio controls class="w-full h-8"><source src="./audio/dynamic_streaming.wav" type="audio/wav"></audio>
+                        </div>
+                        <p class="text-[11px] text-neutral-400 italic">
+                            * Normal &rarr; steered during middle window &rarr; normal revert post-intervention.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bibtex" class="space-y-4">
+            <div class="border-b border-neutral-200 pb-4">
+                <h2 class="text-xl font-bold text-neutral-900 tracking-tight">BibTeX Citation</h2>
+            </div>
+            <div class="relative bg-neutral-900 text-neutral-100 p-5 rounded-2xl text-xs sm:text-sm font-mono overflow-x-auto shadow-sm">
+                
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-neutral-200 py-8 text-center text-xs text-neutral-500 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <p>Loud and Clear: Dynamic Activation Steering for Improving Speech Intelligibility in Noisy Environments</p>
+        </div>
+    </footer>
+
+</body>
+</html>
